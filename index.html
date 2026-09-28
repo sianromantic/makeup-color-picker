@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#884b67">
+  <meta name="description" content="30 款專屬收納盒配色。選下喜歡的款式，把心意變成每天看得到的顏色。">
+  <title>選一個喜歡的顏色｜你的專屬收納盒</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23884b67'/%3E%3Cpath d='M16 25 6 15C0 7 12 3 16 10 20 3 32 7 26 15Z' fill='%23fff4f8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="colors.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#gallery">跳至配色圖集</a>
+  <header class="masthead">
+    <a class="wordmark" href="./" aria-label="回到全部配色"><span class="brand-mark" aria-hidden="true">♡</span> FOR YOU</a>
+    <span class="edition">30 種配色 · 一份心意</span>
+  </header>
+  <main class="page">
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">你的專屬收納盒</p><h1 id="page-title">挑一個，<em>最喜歡的。</em></h1></div>
+      <p class="instructions">喜歡就按愛心，可以慢慢選。<br>選好後，把收藏清單傳給我。</p>
+    </section>
+    <div class="toolbar">
+      <div class="tabs" aria-label="瀏覽配色">
+        <button type="button" id="all-tab" class="tab active" aria-pressed="true">全部配色 <span>30</span></button>
+        <button type="button" id="saved-tab" class="tab" aria-pressed="false">我的收藏 <span id="saved-count">0</span></button>
+      </div>
+      <span class="view-note">每張圖：左側關門 · 右側開門</span>
+    </div>
+    <p id="incoming-note" class="notice" hidden>這是分享清單裡的配色。你也可以切回全部，再看看其他款。</p>
+    <section id="gallery" class="gallery" aria-label="30 款收納盒配色"></section>
+    <section id="empty" class="empty" hidden><span aria-hidden="true">♡</span><h2>還沒遇到心動的顏色？</h2><p>回到全部配色，按愛心就能把它留下。</p><button type="button" id="browse-all" class="primary">看看全部配色</button></section>
+    <noscript><p class="notice">請開啟瀏覽器的 JavaScript，就能查看 30 款配色與收藏喜歡的款式。</p></noscript>
+    <footer class="page-footer"><span>為你挑的顏色，留給你決定。</span><small>圖片為配色示意，實際列印色澤與透明度可能略有不同。</small></footer>
+  </main>
+  <aside id="selection-bar" class="selection-bar" aria-label="已收藏的配色" hidden>
+    <div class="selection-copy"><span id="selection-title">已收藏 0 款</span><small id="selection-names"></small></div>
+    <button type="button" id="send-selection" class="primary">傳送選色 <span aria-hidden="true">↗</span></button>
+  </aside>
+  <dialog id="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-heading"><span id="detail-counter" class="eyebrow"></span><button type="button" class="icon-button close-dialog" aria-label="關閉大圖">×</button></div>
+    <div class="detail-layout"><div class="detail-photo"><img id="detail-image" alt="" width="1536" height="1024"><a id="full-image" class="original-link" target="_blank" rel="noopener">開啟原尺寸圖片 ↗</a></div><div class="detail-info"><p class="eyebrow">COLOR SELECTION</p><h2 id="detail-title"></h2><p class="detail-note">左側關門 · 右側開門</p><div id="detail-materials" class="detail-materials"></div><button type="button" id="detail-save" class="primary" aria-pressed="false"></button></div></div>
+    <div class="detail-navigation"><button type="button" id="previous-color" class="text-button">← 上一款</button><span id="detail-position"></span><button type="button" id="next-color" class="text-button">下一款 →</button></div>
+  </dialog>
+  <dialog id="share-dialog" class="share-dialog" aria-labelledby="share-title">
+    <div class="dialog-heading"><span class="eyebrow">YOUR FAVORITES</span><button type="button" class="icon-button close-dialog" aria-label="關閉分享清單">×</button></div>
+    <div class="share-content"><h2 id="share-title">就是這幾個顏色。</h2><p>複製清單，貼到你們的聊天裡。<br>清單中的連結會直接打開這次選的款式。</p><div id="share-chips" class="share-chips"></div><label for="share-text">我的選色清單</label><textarea id="share-text" readonly rows="7"></textarea><div class="share-actions"><button type="button" id="copy-list" class="primary">複製清單</button><button type="button" id="copy-link" class="secondary">複製選色連結</button><button type="button" id="native-share" class="secondary" hidden>分享至…</button></div><p class="local-note">收藏會保留在這個瀏覽器。傳送清單後，對方才會收到你的選擇。</p></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
